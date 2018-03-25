@@ -51,7 +51,7 @@
   border: none;
 }
 .btn__rm {
-  margin: 3px;
+  margin: 3px 0;
   background-color: var(--btn-rm-color);
   display: none;
 }
@@ -70,6 +70,9 @@
 .btn__rm-col {
   position: absolute;
   top: 0;
+}
+.btn__rm-row {
+  margin: 0 3px;
 }
 .btn__add-row {
   margin: 3px 0 0 0;
