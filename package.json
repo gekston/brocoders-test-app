@@ -4,6 +4,7 @@
   "private": true,
   "description": "App react + redux, test task",
   "author": "Igor Nebeschenko <nebeschenkoichor@gmail.com>",
+  "homepage": "https://gekstone.github.io/brocoders-test-app",
   "dependencies": {
     "prop-types": "^15.6.1",
     "react": "^16.2.0",
