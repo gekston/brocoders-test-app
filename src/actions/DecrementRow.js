@@ -1,6 +1,6 @@
-export function DECREMENT_ROW() {
+export function DECREMENT_ROW(ElementToRemove) {
   return {
     type: 'DECREMENT_ROW',
-    payload: 1
+    payload: ElementToRemove
   }
 }

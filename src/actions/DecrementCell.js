@@ -1,6 +1,6 @@
-export function DECREMENT_CELL() {
+export function DECREMENT_CELL(ElementToRemove) {
   return {
     type: 'DECREMENT_CELL',
-    payload: 1
+    payload: ElementToRemove
   }
 }
