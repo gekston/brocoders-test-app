@@ -1,6 +1,6 @@
-export function INCREMENT_ROW() {
+export function INCREMENT_ROW(NewRowIndex) {
   return {
     type: 'INCREMENT_ROW',
-    payload: 1
+    payload: NewRowIndex
   }
 }
