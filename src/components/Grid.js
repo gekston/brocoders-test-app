@@ -1,20 +1,32 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import returnArray from '../helpers/return_array'
 import GridRow from './GridRow'
 
 class Grid extends Component {
   state = {
     tableHovered: null,
     btnPosition: {},
-    removeBtnHovered: null
+    removeBtnHovered: null,
+    rowIndex: null,
+    cellIndex: null
+  }
+
+  addRow (e) {
+    this.props.incrementRow(this.props.row.length + 1)
+  }
+  addCell (e) {
+    this.props.incrementCell(this.props.cell.length + 1)
+  }
+  deleteRow (e) {
+    this.props.decrementRow(this.state.rowIndex)
+  }
+  deleteCell (e) {
+    this.props.decrementCell(this.state.cellIndex)
   }
   render() {
     const {
-      row, cell, incrementCell, incrementRow, decrementRow, decrementCell
+      row, cell
     } = this.props
-    const rowArr = returnArray(row)
-    const cellArr = returnArray(cell)
     let rmBtnPosition = {
       row: {
         display: this.state.tableHovered || this.state.removeBtnHovered ? 'block' : 'none',
@@ -25,11 +37,12 @@ class Grid extends Component {
         transform: 'translateX(' + this.state.btnPosition.x + 'px)'
       }
     }
-    const rows = rowArr.map((index) =>
+    const rows = row.map((index) =>
       <GridRow
         key={index}
-        cell={cellArr}
-        btnPosition={this.calculatePosition} />
+        cell={cell}
+        btnPosition={this.calculatePosition}
+        indexElement={this.indextd} />
     )
     return (
       <section>
@@ -45,32 +58,39 @@ class Grid extends Component {
           </table>
           <button
             className="btn__add btn__add-row"
-            onClick={incrementCell}
+            onClick={this.addCell.bind(this)}
           >+</button>
         </div>
           <button
             className="btn__add btn__add-col"
-            onClick={incrementRow}
+            onClick={this.addRow.bind(this)}
           >+</button>
           <button
             className="btn__rm btn__rm-row"
-            onClick={decrementRow}
-            disabled={rowArr.length <= 1 ? true : false}
-            onMouseEnter={this.RemoveBtnEnter}
+            onClick={this.deleteRow.bind(this)}
+            disabled={row.length <= 1 ? true : false}
+            onMouseOver={this.RemoveBtnEnter}
             onMouseLeave={this.RemoveBtnLeave}
             style={(this.state.tableHovered) || (this.state.removeBtnHovered) ? rmBtnPosition.row : {}}
           >-</button>
           <button
             className="btn__rm btn__rm-col"
-            onClick={decrementCell}
-            disabled={cellArr.length <= 1 ? true : false}
-            onMouseEnter={this.RemoveBtnEnter}
+            onClick={this.deleteCell.bind(this)}
+            disabled={cell.length <= 1 ? true : false}
+            onMouseOver={this.RemoveBtnEnter}
             onMouseLeave={this.RemoveBtnLeave}
             style={(this.state.tableHovered) || (this.state.removeBtnHovered) ? rmBtnPosition.cell : {}}
           >-</button>
       </section>
     )
   }
+  indextd = (e) => {
+    this.setState({
+      rowIndex: e.target.parentNode.rowIndex,
+      cellIndex: e.target.cellIndex
+    })
+  }
+  RemoveCell = () => {}
   RemoveBtnEnter = () => this.setState({ removeBtnHovered: true })
   RemoveBtnLeave = () => this.setState({ removeBtnHovered: false })
   mouseHandlerEnter = () => this.setState({ tableHovered: true })
@@ -85,8 +105,8 @@ class Grid extends Component {
 }
 
 Grid.propTypes = {
-  row: PropTypes.number.isRequired,
-  cell: PropTypes.number.isRequired,
+  row: PropTypes.array.isRequired,
+  cell: PropTypes.array.isRequired,
   incrementCell: PropTypes.func.isRequired,
   incrementRow: PropTypes.func.isRequired,
   decrementRow: PropTypes.func.isRequired,

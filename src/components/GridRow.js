@@ -3,9 +3,12 @@ import PropTypes from 'prop-types'
 
 export default class GridRow extends Component {
   render() {
-    const { cell, btnPosition } = this.props
+    const { cell, btnPosition, indexElement } = this.props
     const cells = cell.map(index => 
-      <td key={index}></td>
+      <td
+        key={index}
+        onMouseOver={indexElement}
+      ></td>
     )
     return(
       <tr
@@ -17,5 +20,6 @@ export default class GridRow extends Component {
 
 GridRow.propTypes = {
   cell: PropTypes.array.isRequired,
-  btnPosition: PropTypes.func.isRequired
+  btnPosition: PropTypes.func.isRequired,
+  indexElement: PropTypes.func.isRequired
 }

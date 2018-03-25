@@ -10,16 +10,16 @@ import './App.css'
 
 class App extends Component {
   render() {
-    const { row } = this.props.row
-    const { cell } = this.props.cell
+    const { rowArray } = this.props.row
+    const { cellArray } = this.props.cell
     const { INCREMENT_CELL } = this.props.addCell
     const { INCREMENT_ROW } = this.props.addRow
     const { DECREMENT_CELL } = this.props.rmCell
     const { DECREMENT_ROW } = this.props.rmRow
     return (
       <Grid
-        row={row}
-        cell={cell}
+        row={rowArray}
+        cell={cellArray}
         incrementRow={INCREMENT_ROW}
         incrementCell={INCREMENT_CELL}
         decrementRow={DECREMENT_ROW}
@@ -32,7 +32,9 @@ class App extends Component {
 function mapStateToProps(state) {
   return {
     row: state.row,
-    cell: state.cell
+    cell: state.cell,
+    rowArray: state.rowArray,
+    cellArray: state.cellArray
   }
 }
 
