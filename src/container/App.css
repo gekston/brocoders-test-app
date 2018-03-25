@@ -1,0 +1,79 @@
+:root {
+  --btn-add-color: #f3a500;
+  --btn-add-hover: #f6c052;
+  --btn-rm-color: #b20000;
+  --btn-rm-hover: #ca4c49;
+  --table-color: #48aae6;
+  --white: #ffffff;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: 55px 0 0 55px;
+}
+.visible {
+  display: block !important;
+}
+.container__table {
+  border: 1px solid var(--table-color);
+  margin: 0 3px 3px 0px;
+  border-spacing: 2px;
+}
+.container__table tr td {
+  width: 50px;
+  height: 50px;
+  background-color: var(--table-color);
+  text-align: center;
+}
+.btn__add:hover,
+.btn__rm:hover {
+  cursor: pointer;
+  visibility: visible;
+  opacity: 1;
+  transition: all 600ms cubic-bezier(0.95, 0.05, 0.795, 0.035);
+}
+.btn__add,
+.btn__rm {
+  color: var(--white);
+  width: 50px;
+  height: 50px;
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  line-height: 2.5;
+  font-size: 18px;
+  border: none;
+}
+.btn__rm {
+  margin: 3px;
+  background-color: var(--btn-rm-color);
+  display: none;
+}
+.btn__rm:hover {
+  background-color: var(--btn-rm-hover);
+  transition: all 600ms cubic-bezier(0.95, 0.05, 0.795, 0.035);
+  display: block;
+}
+.btn__add {
+  background-color: var(--btn-add-color);
+}
+.btn__add:hover {
+  background-color: var(--btn-add-hover);
+}
+.btn__rm-row,
+.btn__rm-col {
+  position: absolute;
+  top: 0;
+}
+.btn__add-row {
+  margin: 3px 0 0 0;
+}
+.btn__add-col {
+  margin: 0 0 0 58px;
+}
