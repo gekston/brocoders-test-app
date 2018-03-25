@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import returnArray from '../helpers/return_array'
 import GridRow from './GridRow'
 
 class Grid extends Component {
@@ -12,14 +13,8 @@ class Grid extends Component {
     const {
       row, cell, incrementCell, incrementRow, decrementRow, decrementCell
     } = this.props
-    const rowArr = []
-    const cellArr = []
-    for(let x = 0; x < row; x++) {
-      rowArr.push(x)
-    }
-    for(let x = 0; x < cell; x++) {
-      cellArr.push(x)
-    }
+    const rowArr = returnArray(row)
+    const cellArr = returnArray(cell)
     let rmBtnPosition = {
       row: {
         display: this.state.tableHovered || this.state.removeBtnHovered ? 'block' : 'none',
@@ -50,12 +45,12 @@ class Grid extends Component {
           </table>
           <button
             className="btn__add btn__add-row"
-            onClick={incrementRow}
+            onClick={incrementCell}
           >+</button>
         </div>
           <button
             className="btn__add btn__add-col"
-            onClick={incrementCell}
+            onClick={incrementRow}
           >+</button>
           <button
             className="btn__rm btn__rm-row"
