@@ -1,4 +1,5 @@
 import returnArray from '../helpers/ReturnArrayItems'
+import deleteItemFromArray from '../helpers/DeleteItemFromArray'
 
 const initialState = {
   row: 4,
@@ -17,7 +18,7 @@ export default function row(state = initialState, action) {
     case 'DECREMENT_ROW':
       return {
         ...state,
-        rowArray: state.rowArray.filter(item => item !== action.payload)
+        rowArray: deleteItemFromArray(state.rowArray, action.payload)
       }
     default:
       return state

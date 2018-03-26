@@ -1,4 +1,5 @@
 import returnArray from '../helpers/ReturnArrayItems'
+import deleteItemFromArray from '../helpers/DeleteItemFromArray'
 
 const initialState = {
   cell: 4,
@@ -17,7 +18,7 @@ export default function cell(state = initialState, action) {
     case 'DECREMENT_CELL':
       return {
         ...state,
-        cellArray: state.cellArray.filter(item => item !== action.payload)
+        cellArray: deleteItemFromArray(state.cellArray, action.payload)
       }
     default:
       return state
