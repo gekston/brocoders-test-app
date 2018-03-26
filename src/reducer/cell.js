@@ -15,10 +15,9 @@ export default function cell(state = initialState, action) {
         cellArray: returnArray(action.payload)
       }
     case 'DECREMENT_CELL':
-    const spliceCellArray = state.cellArray.splice(action.payload, 1)
       return {
         ...state,
-        cellArray: state.cellArray
+        cellArray: state.cellArray.filter(item => item !== action.payload)
       }
     default:
       return state

@@ -15,10 +15,9 @@ export default function row(state = initialState, action) {
         rowArray: returnArray(action.payload)
       }
     case 'DECREMENT_ROW':
-    const spliceRowArray = state.rowArray.splice(action.payload, 1)
       return {
         ...state,
-        rowArray: state.rowArray
+        rowArray: state.rowArray.filter(item => item !== action.payload)
       }
     default:
       return state
