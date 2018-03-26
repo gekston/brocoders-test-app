@@ -24,9 +24,7 @@ class Grid extends Component {
     this.props.decrementCell(this.state.cellIndex)
   }
   render() {
-    const {
-      row, cell
-    } = this.props
+    const { row, cell } = this.props
     let rmBtnPosition = {
       row: {
         display: this.state.tableHovered || this.state.removeBtnHovered ? 'block' : 'none',
