@@ -28,11 +28,11 @@ class Grid extends Component {
     let rmBtnPosition = {
       row: {
         display: this.state.tableHovered || this.state.removeBtnHovered ? 'block' : 'none',
-        transform: 'translateY(' + this.state.btnPosition.y + 'px)'
+        left:  this.state.btnPosition.x + 'px'
       },
       cell: {
         display: this.state.tableHovered || this.state.removeBtnHovered ? 'block' : 'none',
-        transform: 'translateX(' + this.state.btnPosition.x + 'px)'
+        top:  this.state.btnPosition.y + 'px'
       }
     }
     const rows = row.map((index) =>
