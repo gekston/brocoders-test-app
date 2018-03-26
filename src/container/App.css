@@ -16,6 +16,7 @@
   flex-wrap: wrap;
   align-items: flex-start;
   padding: 55px 0 0 55px;
+  position: relative;
 }
 .visible {
   display: block !important;
