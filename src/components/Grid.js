@@ -64,7 +64,7 @@ class Grid extends Component {
             onClick={this.addRow.bind(this)}
           >+</button>
           <button
-            className="btn__rm btn__rm-row"
+            className="btn__rm btn__rm-col"
             onClick={this.deleteCell.bind(this)}
             disabled={row.length <= 1 ? true : false}
             onMouseOver={this.RemoveBtnEnter}
@@ -72,7 +72,7 @@ class Grid extends Component {
             style={(this.state.tableHovered) || (this.state.removeBtnHovered) ? rmBtnPosition.row : {}}
           >-</button>
           <button
-            className="btn__rm btn__rm-col"
+            className="btn__rm btn__rm-row"
             onClick={this.deleteRow.bind(this)}
             disabled={cell.length <= 1 ? true : false}
             onMouseOver={this.RemoveBtnEnter}
