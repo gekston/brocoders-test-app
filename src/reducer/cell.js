@@ -13,7 +13,7 @@ export default function cell(state = initialState, action) {
     case 'INCREMENT_CELL':
       return {
         ...state,
-        cellArray: returnArray(action.payload)
+        cellArray: state.cellArray.concat(action.payload)
       }
     case 'DECREMENT_CELL':
       return {

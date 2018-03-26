@@ -13,7 +13,7 @@ export default function row(state = initialState, action) {
     case 'INCREMENT_ROW':
       return {
         ...state,
-        rowArray: returnArray(action.payload)
+        rowArray: state.rowArray.concat(action.payload)
       }
     case 'DECREMENT_ROW':
       return {
