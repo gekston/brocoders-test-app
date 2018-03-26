@@ -1,4 +1,4 @@
-import returnArray from '../helpers/return_array'
+import returnArray from '../helpers/ReturnArrayItems'
 
 const initialState = {
   row: 4,
