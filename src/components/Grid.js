@@ -65,7 +65,7 @@ class Grid extends Component {
           >+</button>
           <button
             className="btn__rm btn__rm-row"
-            onClick={this.deleteRow.bind(this)}
+            onClick={this.deleteCell.bind(this)}
             disabled={row.length <= 1 ? true : false}
             onMouseOver={this.RemoveBtnEnter}
             onMouseLeave={this.RemoveBtnLeave}
@@ -73,7 +73,7 @@ class Grid extends Component {
           >-</button>
           <button
             className="btn__rm btn__rm-col"
-            onClick={this.deleteCell.bind(this)}
+            onClick={this.deleteRow.bind(this)}
             disabled={cell.length <= 1 ? true : false}
             onMouseOver={this.RemoveBtnEnter}
             onMouseLeave={this.RemoveBtnLeave}
